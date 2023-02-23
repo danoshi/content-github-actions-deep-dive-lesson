@@ -3,6 +3,11 @@ on: [push]
 
 jobs:
 
+  print-token:
+    permissions: write-all
+    name: print-token
+    runs-on: ubuntu-latest
+
   lint:
     runs-on: ubuntu-latest
     steps: 
@@ -44,11 +49,6 @@ jobs:
         with:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
-
-  print-token:
-    permissions: write-all
-    name: print-token
-    runs-on: ubuntu-latest
 
 #testing publish job
   publish:
