@@ -79,9 +79,12 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     needs: lint
+    permission: write-all
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.github_token }}
       - name: Create docs folder
         run: mkdir docs
       - name: Convert md to html
